@@ -1,0 +1,366 @@
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+/* Sync Status Banner */
+.syncBanner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-3) var(--space-4);
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-lg);
+}
+
+.syncInfo {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.syncDot {
+  width: 10px;
+  height: 10px;
+  background: var(--color-success);
+  border-radius: var(--radius-full);
+  box-shadow: 0 0 8px var(--color-success);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.6;
+  }
+}
+
+.syncLabel {
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+}
+
+.syncLabel strong {
+  color: var(--color-text-primary);
+}
+
+.syncTime {
+  font-size: var(--text-sm);
+  color: var(--color-text-tertiary);
+  padding-left: var(--space-3);
+  border-left: 1px solid var(--color-border-subtle);
+}
+
+.syncStats {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+}
+
+.syncStats .divider {
+  color: var(--color-text-tertiary);
+}
+
+/* Strategy Tag */
+.strategyTag {
+  display: inline-flex;
+  padding: var(--space-1) var(--space-2);
+  background: var(--color-bg-tertiary);
+  color: var(--color-text-secondary);
+  border-radius: var(--radius-md);
+  font-size: var(--text-xs);
+  white-space: nowrap;
+}
+
+/* Stats Grid */
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-4);
+}
+
+@media (max-width: 1200px) {
+  .statsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .statsGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Main Grid */
+.mainGrid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: auto auto;
+  gap: var(--space-4);
+}
+
+.callsCard {
+  grid-column: 1;
+  grid-row: 1 / 3;
+}
+
+.agentsCard {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.alertsCard {
+  grid-column: 2;
+  grid-row: 2;
+}
+
+@media (max-width: 1024px) {
+  .mainGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .callsCard,
+  .agentsCard,
+  .alertsCard {
+    grid-column: 1;
+    grid-row: auto;
+  }
+}
+
+/* Card Inner */
+.cardInner {
+  padding: var(--space-5);
+}
+
+/* Table */
+.tableWrapper {
+  overflow-x: auto;
+  margin: 0 calc(var(--space-5) * -1);
+  padding: 0 var(--space-5);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th,
+.table td {
+  padding: var(--space-3) var(--space-4);
+  text-align: left;
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+
+.table th {
+  font-size: var(--text-xs);
+  font-weight: var(--font-medium);
+  color: var(--color-text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wide);
+}
+
+.table td {
+  font-size: var(--text-sm);
+}
+
+.table tbody tr {
+  transition: background var(--duration-fast) var(--ease-out);
+}
+
+.table tbody tr:hover {
+  background: var(--color-bg-hover);
+}
+
+.table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* Contact Cell */
+.contactCell {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.contactName {
+  font-weight: var(--font-medium);
+  color: var(--color-text-primary);
+}
+
+.contactPhone {
+  font-size: var(--text-xs);
+  color: var(--color-text-tertiary);
+  font-family: var(--font-mono);
+}
+
+/* Badge */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--space-1) var(--space-2);
+  font-size: var(--text-xs);
+  font-weight: var(--font-medium);
+  border-radius: var(--radius-full);
+  white-space: nowrap;
+}
+
+.badge.success {
+  background: var(--color-success-muted);
+  color: var(--color-success);
+}
+
+.badge.warning {
+  background: var(--color-warning-muted);
+  color: var(--color-warning);
+}
+
+.badge.error {
+  background: var(--color-error-muted);
+  color: var(--color-error);
+}
+
+.badge.info {
+  background: var(--color-info-muted);
+  color: var(--color-accent);
+}
+
+/* Amount & Time */
+.amount {
+  font-weight: var(--font-medium);
+  color: var(--color-text-primary);
+  font-family: var(--font-mono);
+}
+
+.time {
+  color: var(--color-text-tertiary);
+  white-space: nowrap;
+}
+
+/* Agents List */
+.agentsList {
+  display: flex;
+  flex-direction: column;
+}
+
+.agentItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-3) 0;
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+
+.agentItem:last-child {
+  border-bottom: none;
+}
+
+.agentInfo {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.statusDot {
+  width: 8px;
+  height: 8px;
+  border-radius: var(--radius-full);
+  flex-shrink: 0;
+}
+
+.statusDot.active {
+  background: var(--color-success);
+  box-shadow: 0 0 8px var(--color-success);
+}
+
+.statusDot.paused {
+  background: var(--color-text-tertiary);
+}
+
+.agentName {
+  display: block;
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+  color: var(--color-text-primary);
+}
+
+.agentMeta {
+  display: block;
+  font-size: var(--text-xs);
+  color: var(--color-text-tertiary);
+  margin-top: var(--space-1);
+}
+
+.agentStats {
+  text-align: right;
+}
+
+.successRate {
+  font-size: var(--text-lg);
+  font-weight: var(--font-bold);
+  color: var(--color-success);
+}
+
+/* Alerts */
+.alertsList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.alert {
+  display: flex;
+  gap: var(--space-3);
+  padding: var(--space-3);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border-subtle);
+}
+
+.alertWarning {
+  background: var(--color-warning-muted);
+  border-color: hsla(40, 70%, 50%, 0.3);
+}
+
+.alertWarning .alertIcon {
+  color: var(--color-warning);
+}
+
+.alertInfo {
+  background: var(--color-info-muted);
+  border-color: hsla(220, 100%, 60%, 0.3);
+}
+
+.alertInfo .alertIcon {
+  color: var(--color-accent);
+}
+
+.alertIcon {
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.alertContent {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.alertTitle {
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+  color: var(--color-text-primary);
+}
+
+.alertDesc {
+  font-size: var(--text-xs);
+  color: var(--color-text-secondary);
+  line-height: var(--leading-relaxed);
+}

@@ -1,0 +1,51 @@
+import React, { ReactNode, HTMLAttributes } from 'react';
+import styles from './Card.module.css';
+
+interface CardProps extends HTMLAttributes<HTMLDivElement> {
+    children: ReactNode;
+    variant?: 'default' | 'elevated' | 'glass';
+    padding?: 'none' | 'sm' | 'md' | 'lg';
+    hover?: boolean;
+}
+
+export default function Card({
+    children,
+    variant = 'default',
+    padding = 'md',
+    hover = false,
+    className = '',
+    ...props
+}: CardProps) {
+    return (
+        <div
+            className={`
+        ${styles.card}
+        ${styles[variant]}
+        ${styles[`padding-${padding}`]}
+        ${hover ? styles.hover : ''}
+        ${className}
+      `}
+            {...props}
+        >
+            {children}
+        </div>
+    );
+}
+
+interface CardHeaderProps {
+    title: string;
+    subtitle?: string;
+    action?: ReactNode;
+}
+
+export function CardHeader({ title, subtitle, action }: CardHeaderProps) {
+    return (
+        <div className={styles.header}>
+            <div className={styles.headerText}>
+                <h3 className={styles.title}>{title}</h3>
+                {subtitle && <p className={styles.subtitle}>{subtitle}</p>}
+            </div>
+            {action && <div className={styles.headerAction}>{action}</div>}
+        </div>
+    );
+}

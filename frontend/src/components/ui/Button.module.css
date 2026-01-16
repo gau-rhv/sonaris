@@ -1,0 +1,123 @@
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    font-family: inherit;
+    font-weight: var(--font-medium);
+    border: none;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: all var(--duration-fast) var(--ease-out);
+    white-space: nowrap;
+    user-select: none;
+}
+
+.button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.button:active:not(:disabled) {
+    transform: scale(0.98);
+}
+
+/* Variants */
+.primary {
+    background: var(--color-accent);
+    color: var(--color-text-primary);
+}
+
+.primary:hover:not(:disabled) {
+    background: var(--color-accent-hover);
+    box-shadow: var(--shadow-glow);
+}
+
+.secondary {
+    background: var(--color-bg-tertiary);
+    color: var(--color-text-primary);
+    border: 1px solid var(--color-border-subtle);
+}
+
+.secondary:hover:not(:disabled) {
+    background: var(--color-bg-hover);
+    border-color: var(--color-border-default);
+}
+
+.ghost {
+    background: transparent;
+    color: var(--color-text-secondary);
+}
+
+.ghost:hover:not(:disabled) {
+    background: var(--color-bg-hover);
+    color: var(--color-text-primary);
+}
+
+.danger {
+    background: var(--color-error);
+    color: var(--color-text-primary);
+}
+
+.danger:hover:not(:disabled) {
+    background: hsl(0, 70%, 60%);
+}
+
+/* Sizes */
+.sm {
+    height: 32px;
+    padding: 0 var(--space-3);
+    font-size: var(--text-xs);
+}
+
+.md {
+    height: 38px;
+    padding: 0 var(--space-4);
+    font-size: var(--text-sm);
+}
+
+.lg {
+    height: 44px;
+    padding: 0 var(--space-5);
+    font-size: var(--text-base);
+}
+
+/* Full width */
+.fullWidth {
+    width: 100%;
+}
+
+/* Icon */
+.icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.label {
+    flex-shrink: 0;
+}
+
+/* Loading */
+.loading .label {
+    opacity: 0;
+}
+
+.spinner {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}

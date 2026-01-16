@@ -1,0 +1,49 @@
+.appShell {
+    min-height: 100vh;
+    background: var(--color-bg-primary);
+}
+
+.mainWrapper {
+    margin-left: var(--sidebar-width);
+    min-height: 100vh;
+    transition: margin-left var(--duration-normal) var(--ease-out);
+}
+
+:global(.sidebar-collapsed) .mainWrapper {
+    margin-left: var(--sidebar-collapsed-width);
+}
+
+.main {
+    padding-top: var(--topbar-height);
+    min-height: 100vh;
+}
+
+.content {
+    padding: var(--space-6);
+    max-width: var(--content-max-width);
+    margin: 0 auto;
+    animation: fadeIn var(--duration-normal) var(--ease-out);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .mainWrapper {
+        margin-left: 0;
+    }
+
+    .content {
+        padding: var(--space-4);
+    }
+}
